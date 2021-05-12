@@ -111,7 +111,7 @@ parser.add_argument('--min_step',type=int,default=10,help='the number of min ste
 if __name__ == '__main__':
 
 
-    dataset = 'junyiacademy'  #  ASSISTments2009 / ASSISTment2015 /  synthetic / statics2011 / junyiacademy / EDNet
+    dataset = 'ASSISTments2009'  #  ASSISTments2009 / ASSISTment2015 /  synthetic / statics2011 / junyiacademy / EDNet
 
     model = 'DKT'  # DKT /
     if dataset == 'ASSISTments2009':
