@@ -199,10 +199,11 @@ if __name__ == '__main__':
     train_dataset = DKTDataset(group=train_set,n_skill=parsers.n_question,max_seq=parsers.max_step,min_step=parsers.min_step)
     # print(train_dataset.__dict__)
     # 使用固定缓冲区 加快Tensor复制的速度，并且可以使用异步的方式进行复制
+
     dataloader_kwargs = {'pin_memory': True} if torch.cuda.is_available() else {}
 
     test_dataset = DKTDataset(test_dataset, n_skill=parsers.n_question, max_seq=parsers.max_step, min_step=parsers.min_step)
-
+    # 如果运行内存不够建议减低num_workers的值
     train_dataloader = DataLoader(train_dataset, batch_size=32, shuffle=True, num_workers=5, **dataloader_kwargs)
     test_dataloader = DataLoader(test_dataset, batch_size=32, shuffle=True, num_workers=5, **dataloader_kwargs)
     # 使用GPU or CPU
